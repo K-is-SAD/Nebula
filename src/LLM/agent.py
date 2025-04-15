@@ -129,8 +129,9 @@ async def run_pipeline(github_url):
             "success": False
         }
 
-async def main():
-    if len(sys.argv) < 2:
+async def main(github_repo_url:str):
+    result = {}
+    if github_repo_url == None or github_repo_url == "":
         result = {
             "error": "No GitHub URL provided.",
             "success": False
@@ -142,4 +143,4 @@ async def main():
     print(json.dumps(result))
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    asyncio.run(main("https://github.com/K-is-SAD/Github/tree/dev"))
